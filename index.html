@@ -190,9 +190,12 @@
             padding: 0 20px 10px 45px;
             border-bottom: 2px solid var(--border-color);
         }
-        .results-header .premium, .results-header .share {
+        .results-header .header-group {
+            flex-grow: 1;
+        }
+        .results-header .header-premium, .results-header .header-share {
             text-align: right;
-            width: 120px;
+            width: 140px; /* Increased width */
         }
         ol {
             list-style-type: none;
@@ -223,7 +226,7 @@
         }
         .premium-value, .share-value {
             text-align: right;
-            width: 120px;
+            width: 140px; /* Increased width */
             font-weight: 600;
         }
         .share-value {
@@ -243,7 +246,7 @@
 </head>
 <body>
     <nav>
-        <a href="#home" class="logo">Insurer Insights</a>
+        <a href="#home" class="logo">Industry Insights</a>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#data-explorer">Data Explorer</a></li>
@@ -277,10 +280,10 @@
             <h2>Top 5 P&C Insurance Groups - Overall (2023)</h2>
             <p>Based on our analysis of regulatory filings, these are the dominant players in the Canadian P&C market.</p>
             <div class="results-header">
-                <span>Group</span>
+                <span class="header-group">Group</span>
                 <div>
-                    <span class="premium">Total Premium</span>
-                    <span class="share">Market Share</span>
+                    <span class="header-premium">Total Premium</span>
+                    <span class="header-share">Market Share</span>
                 </div>
             </div>
             <ol>
@@ -293,7 +296,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Canadian Insurer Insights. All rights reserved.</p>
+            <p>&copy; 2025 Industry Insights. All rights reserved.</p>
         </footer>
     </div>
 
@@ -393,16 +396,21 @@
 
             let title = `<h3>Top 5 Groups for ${selectedLob} in ${selectedProvince} (2023)</h3>`;
             let header = `<div class="results-header">
-                            <span>Group</span>
+                            <span class="header-group">Group</span>
                             <div>
-                                <span class="premium">Total Premium</span>
-                                <span class="share">Market Share</span>
+                                <span class="header-premium">Total Premium</span>
+                                <span class="header-share">Market Share</span>
                             </div>
                           </div>`;
             let html = '<ol>';
             if (sortedGroups.length > 0) {
                 sortedGroups.forEach(item => {
-                    const formattedPremium = '$' + (item.premium / 1000000).toFixed(1) + 'M';
+                    let formattedPremium;
+                    if (item.premium >= 1000000000) {
+                        formattedPremium = '$' + (item.premium / 1000000000).toFixed(1) + 'B';
+                    } else {
+                        formattedPremium = '$' + (item.premium / 1000000).toFixed(1) + 'M';
+                    }
                     html += `<li>
                                 <span class="group-name"><strong>${item.group}</strong></span>
                                 <span class="premium-value">${formattedPremium}</span>
