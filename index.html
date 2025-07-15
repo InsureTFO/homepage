@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canadian Industry Insights</title>
+    <title>Canadian Insurer Insights</title>
     <style>
         /* --- Reset & Base Styles --- */
         :root {
@@ -182,6 +182,18 @@
             color: var(--primary-color);
             font-size: 1.4rem;
         }
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            color: var(--dark-text);
+            padding: 0 20px 10px 45px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .results-header .premium, .results-header .share {
+            text-align: right;
+            width: 120px;
+        }
         ol {
             list-style-type: none;
             padding-left: 0;
@@ -196,6 +208,7 @@
             border-radius: 8px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
         ol li::before {
             content: counter(item) ".";
@@ -204,6 +217,17 @@
             font-weight: 700;
             color: var(--primary-color);
             font-size: 1.2em;
+        }
+        .group-name {
+            flex-grow: 1;
+        }
+        .premium-value, .share-value {
+            text-align: right;
+            width: 120px;
+            font-weight: 600;
+        }
+        .share-value {
+             color: var(--secondary-color);
         }
 
         /* --- Footer --- */
@@ -219,7 +243,7 @@
 </head>
 <body>
     <nav>
-        <a href="#home" class="logo">Industry Insights</a>
+        <a href="#home" class="logo">Insurer Insights</a>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#data-explorer">Data Explorer</a></li>
@@ -252,12 +276,19 @@
         <section>
             <h2>Top 5 P&C Insurance Groups - Overall (2023)</h2>
             <p>Based on our analysis of regulatory filings, these are the dominant players in the Canadian P&C market.</p>
+            <div class="results-header">
+                <span>Group</span>
+                <div>
+                    <span class="premium">Total Premium</span>
+                    <span class="share">Market Share</span>
+                </div>
+            </div>
             <ol>
-                <li><strong>Intact Group:</strong> 22.8%</li>
-                <li><strong>Desjardins Group:</strong> 10.7%</li>
-                <li><strong>Lloyd's Underwriters:</strong> 9.8%</li>
-                <li><strong>Aviva Canada Group:</strong> 8.2%</li>
-                <li><strong>TD Insurance Group:</strong> 6.6%</li>
+                <li><span class="group-name"><strong>Intact Group</strong></span> <span class="premium-value">$21.0B</span> <span class="share-value">22.8%</span></li>
+                <li><span class="group-name"><strong>Desjardins Group</strong></span> <span class="premium-value">$9.9B</span> <span class="share-value">10.7%</span></li>
+                <li><span class="group-name"><strong>Lloyd's Underwriters</strong></span> <span class="premium-value">$9.0B</span> <span class="share-value">9.8%</span></li>
+                <li><span class="group-name"><strong>Aviva Canada Group</strong></span> <span class="premium-value">$7.5B</span> <span class="share-value">8.2%</span></li>
+                <li><span class="group-name"><strong>TD Insurance Group</strong></span> <span class="premium-value">$6.1B</span> <span class="share-value">6.6%</span></li>
             </ol>
         </section>
 
@@ -296,6 +327,8 @@
             {"Company_Name":"LLOYD'S UNDERWRITERS","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":987654000,"Insurance_Group":"Lloyd's Underwriters"},
             {"Company_Name":"CHUBB INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":345678000,"Insurance_Group":"Chubb Group"},
             {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Other","Premiums_Written":268686000,"Insurance_Group":"SGI Canada"},
+            {"Company_Name":"THE WAWANESA MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":123456000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":189012000,"Insurance_Group":"SGI Canada"},
             {"Company_Name":"PEACE HILLS GENERAL INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":55000000,"Insurance_Group":"Peace Hills Group"}
         ];
 
@@ -359,16 +392,28 @@
                 .slice(0, 5);
 
             let title = `<h3>Top 5 Groups for ${selectedLob} in ${selectedProvince} (2023)</h3>`;
+            let header = `<div class="results-header">
+                            <span>Group</span>
+                            <div>
+                                <span class="premium">Total Premium</span>
+                                <span class="share">Market Share</span>
+                            </div>
+                          </div>`;
             let html = '<ol>';
             if (sortedGroups.length > 0) {
                 sortedGroups.forEach(item => {
-                    html += `<li><strong>${item.group}:</strong> ${item.share.toFixed(1)}%</li>`;
+                    const formattedPremium = '$' + (item.premium / 1000000).toFixed(1) + 'M';
+                    html += `<li>
+                                <span class="group-name"><strong>${item.group}</strong></span>
+                                <span class="premium-value">${formattedPremium}</span>
+                                <span class="share-value">${item.share.toFixed(1)}%</span>
+                             </li>`;
                 });
             } else {
                 html += '<li>No data available for this selection.</li>';
             }
             html += '</ol>';
-            resultsContainer.innerHTML = title + html;
+            resultsContainer.innerHTML = title + header + html;
         }
 
         // Initialize the page
@@ -388,4 +433,3 @@
     </script>
 </body>
 </html>
-
