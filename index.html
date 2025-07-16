@@ -276,6 +276,31 @@
             left: 0;
             background-color: #f8f9fa;
         }
+        
+        /* --- Company Groups Section --- */
+        .group-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .group-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .group-card h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .group-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .group-card ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
 
 
         /* --- Footer --- */
@@ -335,6 +360,8 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#data-explorer">Data Explorer</a></li>
+            <li><a href="#market-overview">Market Overview</a></li>
+            <li><a href="#company-groups">Company Groups</a></li>
         </ul>
     </nav>
 
@@ -368,6 +395,12 @@
             <div id="provincial-summary" style="margin-top: 40px;"></div>
             <div id="lob-summary" style="margin-top: 40px;"></div>
             <div id="crosstab-summary" style="margin-top: 40px;"></div>
+        </section>
+        
+        <section id="company-groups">
+            <h2>Company Groups Explained</h2>
+            <p>Market share is often consolidated under parent groups. This table shows which individual companies are included in the major groups for our analysis.</p>
+            <div id="group-details"></div>
         </section>
 
         <footer>
@@ -480,6 +513,7 @@
         const provincialSummaryContainer = document.getElementById('provincial-summary');
         const lobSummaryContainer = document.getElementById('lob-summary');
         const crosstabSummaryContainer = document.getElementById('crosstab-summary');
+        const groupDetailsContainer = document.getElementById('group-details');
 
         function formatPremium(premium) {
             if (premium >= 1000000000) {
@@ -677,11 +711,32 @@
             crosstabHtml += '</tbody></table></div>';
             crosstabSummaryContainer.innerHTML = crosstabHtml;
         }
+        
+        function generateGroupDetails() {
+            const groupMapping = {
+                'Intact Group': ['INTACT INSURANCE COMPANY', 'NOVEX INSURANCE COMPANY', 'ROYAL & SUN ALLIANCE INSURANCE COMPANY OF CANADA', 'THE GUARANTEE COMPANY OF NORTH AMERICA'],
+                'Desjardins Group': ['DESJARDINS GENERAL INSURANCE INC.', 'THE PERSONAL INSURANCE COMPANY', 'UNIFUND ASSURANCE COMPANY'],
+                'Travelers Group': ['TRAVELERS INSURANCE COMPANY OF CANADA', 'ST. PAUL FIRE AND MARINE INSURANCE COMPANY', 'THE DOMINION OF CANADA GENERAL INSURANCE COMPANY'],
+                'Economical Group': ['ECONOMICAL MUTUAL INSURANCE COMPANY', 'WATERLOO INSURANCE COMPANY']
+            };
+
+            let html = '<div class="group-grid">';
+            for(const group in groupMapping) {
+                html += `<div class="group-card"><h4>${group}</h4><ul>`;
+                groupMapping[group].forEach(company => {
+                    html += `<li>${company}</li>`;
+                });
+                html += '</ul></div>';
+            }
+            html += '</div>';
+            groupDetailsContainer.innerHTML = html;
+        }
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             populateDropdowns();
             generateSummaryTables();
+            generateGroupDetails();
             lobSelect.addEventListener('change', updateResults);
             provinceSelect.addEventListener('change', updateResults);
             
