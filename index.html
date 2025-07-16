@@ -247,6 +247,37 @@
              color: var(--secondary-color);
         }
 
+        /* --- Cross-Tab Table --- */
+        .crosstab-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .crosstab-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            white-space: nowrap;
+        }
+        .crosstab-table th, .crosstab-table td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            text-align: right;
+        }
+        .crosstab-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        .crosstab-table td:first-child, .crosstab-table th:first-child {
+            text-align: left;
+            font-weight: 700;
+            position: sticky;
+            left: 0;
+            background-color: #f8f9fa;
+        }
+
+
         /* --- Footer --- */
         footer {
             text-align: center;
@@ -336,6 +367,7 @@
             <div id="national-summary"></div>
             <div id="provincial-summary" style="margin-top: 40px;"></div>
             <div id="lob-summary" style="margin-top: 40px;"></div>
+            <div id="crosstab-summary" style="margin-top: 40px;"></div>
         </section>
 
         <footer>
@@ -419,12 +451,15 @@
         const nationalSummaryContainer = document.getElementById('national-summary');
         const provincialSummaryContainer = document.getElementById('provincial-summary');
         const lobSummaryContainer = document.getElementById('lob-summary');
+        const crosstabSummaryContainer = document.getElementById('crosstab-summary');
 
         function formatPremium(premium) {
             if (premium >= 1000000000) {
                 return '$' + (premium / 1000000000).toFixed(1) + 'B';
-            } else {
+            } else if (premium >= 1000000) {
                 return '$' + (premium / 1000000).toFixed(1) + 'M';
+            } else {
+                 return '$' + (premium / 1000).toFixed(0) + 'K';
             }
         }
 
@@ -537,8 +572,8 @@
 
 
             // Provincial Summary
-            let provincialPremiums = {};
             const detailedData = insuranceData.filter(d => d.Line_of_Business !== 'Total - Net' && d.Province !== 'All Canada');
+            let provincialPremiums = {};
             detailedData.forEach(item => {
                 provincialPremiums[item.Province] = (provincialPremiums[item.Province] || 0) + item.Premiums_Written;
             });
@@ -588,6 +623,27 @@
             });
             lobHtml += '</ol>';
             lobSummaryContainer.innerHTML = lobHtml;
+            
+            // Cross-Tabulation Summary
+            let crosstabHtml = '<h3>Premium Distribution Matrix (% of National Total)</h3>';
+            crosstabHtml += '<div class="crosstab-container"><table class="crosstab-table"><thead><tr><th>Product Line</th>';
+            sortedProvinces.forEach(p => {
+                crosstabHtml += `<th>${p.name}</th>`;
+            });
+            crosstabHtml += '</tr></thead><tbody>';
+
+            sortedLobs.forEach(lob => {
+                crosstabHtml += `<tr><td>${lob.name}</td>`;
+                sortedProvinces.forEach(prov => {
+                    const cellData = detailedData.filter(d => d.Line_of_Business === lob.name && d.Province === prov.name);
+                    const cellPremium = cellData.reduce((sum, item) => sum + item.Premiums_Written, 0);
+                    const cellShare = totalDetailedPremium > 0 ? (cellPremium / totalDetailedPremium) * 100 : 0;
+                    crosstabHtml += `<td>${cellShare.toFixed(2)}%</td>`;
+                });
+                crosstabHtml += '</tr>';
+            });
+            crosstabHtml += '</tbody></table></div>';
+            crosstabSummaryContainer.innerHTML = crosstabHtml;
         }
 
         // Initialize the page
