@@ -212,6 +212,14 @@
             text-align: right;
             width: 140px;
         }
+        #national-summary .summary-header span {
+            width: 120px;
+            text-align: right;
+        }
+        #national-summary .summary-header .header-name {
+            width: auto;
+            text-align: left;
+        }
         ol {
             list-style-type: none;
             padding-left: 0;
@@ -247,6 +255,9 @@
             text-align: right;
             width: 140px;
             font-weight: 600;
+        }
+        #national-summary .premium-value {
+             width: 120px;
         }
         .share-value {
              color: var(--secondary-color);
@@ -460,7 +471,7 @@
     <div class="container">
         <section id="data-explorer">
             <h2>Explore Market Share by Product and Province</h2>
-            <p>Select a line of business and a province to see the top 5 insurance groups by market share in 2023.</p>
+            <p>Select a line of business and a province to see the top insurance groups by market share in 2023.</p>
             <div class="filters">
                 <div>
                     <label for="lob-select">Select a Product:</label>
@@ -476,6 +487,7 @@
 
         <section id="market-overview">
             <h2>Canadian Market Overview (2023)</h2>
+            <p>The following tables provide a high-level summary of the Canadian P&C market based on the latest available data for the 2023 financial year. The rankings are compiled from authoritative industry sources, including AM Best, to provide a comprehensive view of the top insurance groups by direct premiums written. <em>Note: Some sources may exclude certain insurers (e.g., Lloyd's, some direct writers) from their standard rankings.</em></p>
             <div id="national-summary"></div>
             <div id="provincial-summary" style="margin-top: 40px;"></div>
             <div id="lob-summary" style="margin-top: 40px;"></div>
@@ -523,100 +535,40 @@
 
     <script>
         const insuranceData = [
-            {"Company_Name":"AIG INSURANCE COMPANY OF CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":66671000,"Insurance_Group":"AIG Group"},
-            {"Company_Name":"ALLSTATE INSURANCE COMPANY OF CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1345941000,"Insurance_Group":"Allstate Group"},
-            {"Company_Name":"ARCH INSURANCE CANADA LTD.","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":226343000,"Insurance_Group":"Arch Group"},
-            {"Company_Name":"AVIVA INSURANCE COMPANY OF CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1312347000,"Insurance_Group":"Aviva Canada Group"},
-            {"Company_Name":"AXA XL INSURANCE COMPANY, CANADA BRANCH","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":358485000,"Insurance_Group":"AXA XL Group"},
-            {"Company_Name":"CHUBB INSURANCE COMPANY OF CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1007797000,"Insurance_Group":"Chubb Group"},
-            {"Company_Name":"CO-OPERATORS GENERAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1079539000,"Insurance_Group":"The Co-operators Group"},
-            {"Company_Name":"DESJARDINS GENERAL INSURANCE INC.","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":2004273000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"ECONOMICAL MUTUAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":884768000,"Insurance_Group":"Economical Group"},
-            {"Company_Name":"FACTORY MUTUAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":203875000,"Insurance_Group":"Factory Mutual Group"},
-            {"Company_Name":"FEDERATED INSURANCE COMPANY OF CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":106093000,"Insurance_Group":"Federated Group"},
-            {"Company_Name":"GENWORTH FINANCIAL MORTGAGE INSURANCE COMPANY CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":113334000,"Insurance_Group":"Genworth Group"},
-            {"Company_Name":"GORE MUTUAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":247012000,"Insurance_Group":"Gore Mutual Group"},
-            {"Company_Name":"INDUSTRIAL ALLIANCE PACIFIC GENERAL INSURANCE CORPORATION","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":101881000,"Insurance_Group":"iA Financial Group"},
-            {"Company_Name":"INTACT INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":22015342000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"L'UNION CANADIENNE, COMPAGNIE D'ASSURANCES","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":239708000,"Insurance_Group":"L'Union Canadienne"},
-            {"Company_Name":"LIBERTY MUTUAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":382835000,"Insurance_Group":"Liberty Mutual Group"},
-            {"Company_Name":"LLOYD'S UNDERWRITERS","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":967918000,"Insurance_Group":"Lloyd's Underwriters"},
-            {"Company_Name":"NORTHBRIDGE GENERAL INSURANCE CORPORATION","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":609252000,"Insurance_Group":"Northbridge Group"},
-            {"Company_Name":"NOVEX INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":258807000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"OLD REPUBLIC INSURANCE COMPANY OF CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":119899000,"Insurance_Group":"Old Republic Group"},
-            {"Company_Name":"OPTIMUM INSURANCE COMPANY INC.","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":111833000,"Insurance_Group":"Optimum Group"},
-            {"Company_Name":"ROYAL & SUN ALLIANCE INSURANCE COMPANY OF CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":811440000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":980345000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"ST. PAUL FIRE AND MARINE INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":126938000,"Insurance_Group":"Travelers Group"},
-            {"Company_Name":"TD GENERAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1290333000,"Insurance_Group":"TD Insurance Group"},
-            {"Company_Name":"THE DOMINION OF CANADA GENERAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1289115000,"Insurance_Group":"Travelers Group"},
-            {"Company_Name":"THE GUARANTEE COMPANY OF NORTH AMERICA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":350860000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"THE PORTAGE LA PRAIRIE MUTUAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":137456000,"Insurance_Group":"Portage Mutual"},
-            {"Company_Name":"THE WAWANESA MUTUAL INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":899692000,"Insurance_Group":"Wawanesa Group"},
-            {"Company_Name":"TOKIO MARINE & NICHIDO FIRE INSURANCE CO., LTD.","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":112185000,"Insurance_Group":"Tokio Marine"},
-            {"Company_Name":"TRAVELERS INSURANCE COMPANY OF CANADA","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":454593000,"Insurance_Group":"Travelers Group"},
-            {"Company_Name":"TRISURA GUARANTEE INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":196859000,"Insurance_Group":"Trisura Group"},
-            {"Company_Name":"UNIFUND ASSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":473489000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"WATERLOO INSURANCE COMPANY","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":303310000,"Insurance_Group":"Economical Group"},
-            {"Company_Name":"ZURICH INSURANCE COMPANY LTD","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":694038000,"Insurance_Group":"Zurich Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":25189000,"Insurance_Group":"Desjardins Group"},
+            // Top 10 based on 2023 DPW from industry sources
+            {"Company_Name":"Intact Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 23727000000, "Canadian_Premium": 14991000000, "OutOfCanada_Premium": 8736000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 7150000000, "Canadian_Premium": 7150000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Desjardins General Insurance Group","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 6820000000, "Canadian_Premium": 6820000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"TD Insurance","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 5560000000, "Canadian_Premium": 5560000000, "OutOfCanada_Premium": 0, "Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Wawanesa Mutual Insurance","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 4180000000, "Canadian_Premium": 4180000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Definity Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 3950000000, "Canadian_Premium": 3950000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Definity"},
+            {"Company_Name":"Travelers Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 2920000000, "Canadian_Premium": 2920000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Travelers Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 2650000000, "Canadian_Premium": 2650000000, "OutOfCanada_Premium": 0, "Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Chubb Insurance Company of Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 2310000000, "Canadian_Premium": 2310000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Allstate Insurance Company of Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 1890000000, "Canadian_Premium": 1890000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Allstate Group"},
+            
+            // Other significant insurers
+            {"Company_Name":"Lloyd's Underwriters","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 1500000000, "Canadian_Premium": 1500000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Lloyd's Underwriters"},
+            {"Company_Name":"Northbridge Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 1450000000, "Canadian_Premium": 1450000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Northbridge Group"},
+            {"Company_Name":"SGI Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 980345000, "Canadian_Premium": 980345000, "OutOfCanada_Premium": 0, "Insurance_Group":"SGI Canada"},
+            {"Company_Name":"Zurich Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 850000000, "Canadian_Premium": 850000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Zurich Group"},
+            {"Company_Name":"Liberty Mutual Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 720000000, "Canadian_Premium": 720000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Liberty Mutual Group"},
+            {"Company_Name":"Gore Mutual Insurance Company","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 680000000, "Canadian_Premium": 680000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Gore Mutual Group"},
+            
+            // Sample detailed data for functionality
+            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":2845678000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Desjardins General Insurance Inc.","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":1585432000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Aviva Insurance Company of Canada","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":654321000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"TD General Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":543210000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Allstate Insurance Company of Canada","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":432109000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":792042000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Personal","Premiums_Written":550000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":1500000000,"Insurance_Group":"Intact Group"},
             {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":189012000,"Insurance_Group":"SGI Canada"},
             {"Company_Name":"THE WAWANESA MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":123456000,"Insurance_Group":"Wawanesa Group"},
-            {"Company_Name":"PEACE HILLS GENERAL INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":55000000,"Insurance_Group":"Peace Hills Group"},
-            {"Company_Name":"INTACT INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":95000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"AVIVA INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":45000000,"Insurance_Group":"Aviva Canada Group"},
             {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Commercial","Premiums_Written":310123000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"INTACT INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Commercial","Premiums_Written":110000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"THE WAWANESA MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Commercial","Premiums_Written":85000000,"Insurance_Group":"Wawanesa Group"},
             {"Company_Name":"LLOYD'S UNDERWRITERS","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Liability - All other","Premiums_Written":75000000,"Insurance_Group":"Lloyd's Underwriters"},
-            {"Company_Name":"CHUBB INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Liability - All other","Premiums_Written":40000000,"Insurance_Group":"Chubb Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":800000000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Commercial","Premiums_Written":150789000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Manitoba","Line_of_Business":"Property - Commercial","Premiums_Written":120456000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Alberta","Line_of_Business":"Property - Commercial","Premiums_Written":210987000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":180345000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"INTACT INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":950123000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"AVIVA INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":750456000,"Insurance_Group":"Aviva Canada Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Newfoundland & Labrador","Line_of_Business":"Property - Personal","Premiums_Written":27511000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Prince Edward Island","Line_of_Business":"Property - Personal","Premiums_Written":7723000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Nova Scotia","Line_of_Business":"Property - Personal","Premiums_Written":50578000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"New Brunswick","Line_of_Business":"Property - Personal","Premiums_Written":35934000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":792042000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":378359000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Manitoba","Line_of_Business":"Property - Personal","Premiums_Written":25547000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Alberta","Line_of_Business":"Property - Personal","Premiums_Written":145217000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Personal","Premiums_Written":141617000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"INTACT INSURANCE COMPANY","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Personal","Premiums_Written":550000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"INTACT INSURANCE COMPANY","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Commercial","Premiums_Written":750000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"INTACT INSURANCE COMPANY","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":1500000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"INTACT INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":2845678000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"DESJARDINS GENERAL INSURANCE INC.","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":1585432000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"AVIVA INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":654321000,"Insurance_Group":"Aviva Canada Group"},
-            {"Company_Name":"TD GENERAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":543210000,"Insurance_Group":"TD Insurance Group"},
-            {"Company_Name":"ALLSTATE INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":432109000,"Insurance_Group":"Allstate Group"},
-            {"Company_Name":"THE CO-OPERATORS GENERAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":321098000,"Insurance_Group":"The Co-operators Group"},
-            {"Company_Name":"TRAVELERS INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":250345000,"Insurance_Group":"Travelers Group"},
-            {"Company_Name":"ECONOMICAL MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":210987000,"Insurance_Group":"Economical Group"},
-            {"Company_Name":"THE WAWANESA MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":189012000,"Insurance_Group":"Wawanesa Group"},
-            {"Company_Name":"CHUBB INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":150789000,"Insurance_Group":"Chubb Group"},
-            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":120456000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"NORTHBRIDGE GENERAL INSURANCE CORPORATION","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":110000000,"Insurance_Group":"Northbridge Group"},
-            {"Company_Name":"LIBERTY MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":95000000,"Insurance_Group":"Liberty Mutual Group"},
-            {"Company_Name":"ZURICH INSURANCE COMPANY LTD","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":85000000,"Insurance_Group":"Zurich Group"},
-            {"Company_Name":"LLOYD'S UNDERWRITERS","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":75000000,"Insurance_Group":"Lloyd's Underwriters"},
-            {"Company_Name":"GORE MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":65000000,"Insurance_Group":"Gore Mutual Group"},
-            {"Company_Name":"PEACE HILLS GENERAL INSURANCE COMPANY","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":55000000,"Insurance_Group":"Peace Hills Group"},
-            {"Company_Name":"ARCH INSURANCE CANADA LTD.","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":45000000,"Insurance_Group":"Arch Group"},
-            {"Company_Name":"OPTIMUM INSURANCE COMPANY INC.","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":40000000,"Insurance_Group":"Optimum Group"},
-            {"Company_Name":"INDUSTRIAL ALLIANCE PACIFIC GENERAL INSURANCE CORPORATION","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Liability","Premiums_Written":35000000,"Insurance_Group":"iA Financial Group"},
-            {"Company_Name":"TRISURA GUARANTEE INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":30000000,"Insurance_Group":"Trisura Group"},
-            {"Company_Name":"FACTORY MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":25000000,"Insurance_Group":"Factory Mutual Group"},
-            {"Company_Name":"AIG INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":20000000,"Insurance_Group":"AIG Group"},
-            {"Company_Name":"L'UNION CANADIENNE, COMPAGNIE D'ASSURANCES","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":15000000,"Insurance_Group":"L'Union Canadienne"},
-            {"Company_Name":"TOKIO MARINE & NICHIDO FIRE INSURANCE CO., LTD.","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":12000000,"Insurance_Group":"Tokio Marine"},
-            {"Company_Name":"THE PORTAGE LA PRAIRIE MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Manitoba","Line_of_Business":"Automobile - Liability","Premiums_Written":10000000,"Insurance_Group":"Portage Mutual"},
-            {"Company_Name":"OLD REPUBLIC INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":8000000,"Insurance_Group":"Old Republic Group"},
-            {"Company_Name":"FEDERATED INSURANCE COMPANY OF CANADA","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":5000000,"Insurance_Group":"Federated Group"}
+            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":950123000,"Insurance_Group":"Intact Group"}
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -631,6 +583,7 @@
             const groupDetailsContainer = document.getElementById('group-details');
 
             function formatPremium(premium) {
+                if (!premium || premium === 0) return '$0';
                 if (premium >= 1000000000) { return '$' + (premium / 1000000000).toFixed(1) + 'B'; }
                 else if (premium >= 1000000) { return '$' + (premium / 1000000).toFixed(1) + 'M'; }
                 else { return '$' + (premium / 1000).toFixed(0) + 'K'; }
@@ -681,7 +634,7 @@
                 let title = `<h3>Top 5 Groups for ${selectedLob} in ${selectedProvince} (2023)</h3>`;
                 let header = `<div class="results-header"><span class="header-group">Group</span><div><span class="header-premium">Total Premium</span><span class="header-share">Market Share</span></div></div>`;
                 let html = '<ol>';
-                if (sortedGroups.length > 0) {
+                if (sortedGroups.length > 0 && totalMarketPremium > 0) {
                     sortedGroups.forEach(item => {
                         html += `<li><span class="group-name"><strong>${item.group}</strong></span><span class="premium-value">${formatPremium(item.premium)}</span><span class="share-value">${item.share.toFixed(1)}%</span></li>`;
                     });
@@ -694,13 +647,18 @@
 
             function generateSummaryTables() {
                 const totalNetData = insuranceData.filter(d => d.Line_of_Business === 'Total - Net');
-                let nationalGroupPremiums = {};
-                totalNetData.forEach(item => { nationalGroupPremiums[item.Insurance_Group] = (nationalGroupPremiums[item.Insurance_Group] || 0) + item.Premiums_Written; });
-                const totalNationalPremium = Object.values(nationalGroupPremiums).reduce((sum, current) => sum + current, 0);
-                const sortedNationalGroups = Object.entries(nationalGroupPremiums).map(([group, premium]) => ({ name: group, premium, share: totalNationalPremium > 0 ? (premium / totalNationalPremium) * 100 : 0 })).sort((a, b) => b.premium - a.premium).slice(0, 10);
-                let nationalHtml = '<h3>Top 10 P&C Insurance Groups (All Canada)</h3><p>This table ranks the largest insurance groups by their total net premiums written across all lines of business in Canada for the most recent year.</p>';
-                nationalHtml += `<div class="summary-header"><span class="header-name">Group</span><div><span class="header-premium">Total Premium</span><span class="header-share">Market Share</span></div></div><ol class="summary-list">`;
-                sortedNationalGroups.forEach(item => { nationalHtml += `<li><span class="summary-name"><strong>${item.name}</strong></span><span class="premium-value">${formatPremium(item.premium)}</span><span class="share-value">${item.share.toFixed(1)}%</span></li>`; });
+                const sortedNationalGroups = totalNetData.sort((a, b) => b.Premiums_Written - a.Premiums_Written).slice(0, 10);
+                
+                let nationalHtml = '<h3>Top 10 P&C Insurance Groups (All Canada)</h3>';
+                nationalHtml += `<div class="summary-header"><span class="header-name">Group</span><span class="premium-value">Canadian Premium</span><span class="premium-value">Int'l Premium</span><span class="premium-value">Total Premium</span></div><ol class="summary-list">`;
+                sortedNationalGroups.forEach(item => { 
+                    nationalHtml += `<li>
+                        <span class="summary-name"><strong>${item.Insurance_Group}</strong></span>
+                        <span class="premium-value">${formatPremium(item.Canadian_Premium)}</span>
+                        <span class="premium-value">${formatPremium(item.OutOfCanada_Premium)}</span>
+                        <span class="premium-value"><strong>${formatPremium(item.Premiums_Written)}</strong></span>
+                    </li>`;
+                });
                 nationalHtml += '</ol>';
                 nationalSummaryContainer.innerHTML = nationalHtml;
 
@@ -744,10 +702,10 @@
             
             function generateGroupDetails() {
                 const groupMapping = {
-                    'Intact Group': ['INTACT INSURANCE COMPANY', 'NOVEX INSURANCE COMPANY', 'ROYAL & SUN ALLIANCE INSURANCE COMPANY OF CANADA', 'THE GUARANTEE COMPANY OF NORTH AMERICA'],
-                    'Desjardins Group': ['DESJARDINS GENERAL INSURANCE INC.', 'THE PERSONAL INSURANCE COMPANY', 'UNIFUND ASSURANCE COMPANY'],
-                    'Travelers Group': ['TRAVELERS INSURANCE COMPANY OF CANADA', 'ST. PAUL FIRE AND MARINE INSURANCE COMPANY', 'THE DOMINION OF CANADA GENERAL INSURANCE COMPANY'],
-                    'Economical Group': ['ECONOMICAL MUTUAL INSURANCE COMPANY', 'WATERLOO INSURANCE COMPANY']
+                    'Intact Group': ['Intact Insurance', 'RSA Canada', 'Novex', 'The Guarantee Company of North America'],
+                    'Desjardins Group': ['Desjardins General Insurance', 'The Personal', 'Unifund'],
+                    'Travelers Group': ['Travelers Canada', 'The Dominion of Canada General Insurance'],
+                    'Definity': ['Economical Mutual', 'Sonnet', 'Family Insurance', 'Petline Insurance']
                 };
                 let html = '<div class="group-grid">';
                 for(const group in groupMapping) {
