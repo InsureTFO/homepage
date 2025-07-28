@@ -555,7 +555,7 @@
             {"Company_Name":"Liberty Mutual Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 720000000, "Canadian_Premium": 720000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Liberty Mutual Group"},
             {"Company_Name":"Gore Mutual Insurance Company","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 680000000, "Canadian_Premium": 680000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Gore Mutual Group"},
             
-            // Sample detailed data for functionality
+            // Expanded detailed data for functionality
             {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":2845678000,"Insurance_Group":"Intact Group"},
             {"Company_Name":"Desjardins General Insurance Inc.","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":1585432000,"Insurance_Group":"Desjardins Group"},
             {"Company_Name":"Aviva Insurance Company of Canada","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":654321000,"Insurance_Group":"Aviva Canada Group"},
@@ -564,11 +564,19 @@
             {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":792042000,"Insurance_Group":"Desjardins Group"},
             {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Personal","Premiums_Written":550000000,"Insurance_Group":"Intact Group"},
             {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":1500000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"TD Insurance","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":600000000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":450000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Wawanesa Mutual Insurance","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":350000000,"Insurance_Group":"Wawanesa Group"},
             {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":189012000,"Insurance_Group":"SGI Canada"},
             {"Company_Name":"THE WAWANESA MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":123456000,"Insurance_Group":"Wawanesa Group"},
             {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Commercial","Premiums_Written":310123000,"Insurance_Group":"SGI Canada"},
             {"Company_Name":"LLOYD'S UNDERWRITERS","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Liability - All other","Premiums_Written":75000000,"Insurance_Group":"Lloyd's Underwriters"},
-            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":950123000,"Insurance_Group":"Intact Group"}
+            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":950123000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":1200000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Insurance Company of Canada","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":350000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"TD Insurance","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":280000000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":150000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Wawanesa Mutual Insurance","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":120000000,"Insurance_Group":"Wawanesa Group"}
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -799,6 +807,39 @@
             document.getElementById('table_1_definity').innerHTML = `<table><caption>Table 1: Definity Financial - Consolidated Key Performance Indicators (2021-2025)</caption><thead><tr><th>Year/Qtr</th><th>GWP ($M)</th><th>GWP Growth</th><th>Combined Ratio</th><th>Op. Net Income ($M)</th><th>Op. ROE</th><th>BVPS ($)</th></tr></thead><tbody><tr><td>2021</td><td>3,315</td><td>12.1%</td><td>92.7%</td><td>296</td><td>12.0%</td><td>19.85</td></tr><tr><td>2022</td><td>3,842</td><td>15.9%</td><td>94.3%</td><td>251</td><td>9.5%</td><td>20.11</td></tr><tr><td>2023</td><td>4,205</td><td>9.4%</td><td>94.8%</td><td>224</td><td>8.2%</td><td>21.03</td></tr><tr><td>2024</td><td>4,810</td><td>14.4%</td><td>92.4%</td><td>301</td><td>10.1%</td><td>23.45</td></tr><tr><td>Q1 2025</td><td>1,255</td><td>11.0%</td><td>91.9%</td><td>85</td><td>10.8%</td><td>24.10</td></tr></tbody></table>`;
             document.getElementById('table_2_definity').innerHTML = `<table><caption>Table 2: Definity Segment Performance (2023-2025, Quarterly)</caption><thead><tr><th>Quarter</th><th>Personal GWP Growth</th><th>Personal COR</th><th>Commercial GWP Growth</th><th>Commercial COR</th></tr></thead><tbody><tr><td>Q1 2023</td><td>6.5%</td><td>98.5%</td><td>11.2%</td><td>89.1%</td></tr><tr><td>Q2 2023</td><td>7.1%</td><td>101.2%</td><td>12.5%</td><td>88.5%</td></tr><tr><td>Q3 2023</td><td>8.0%</td><td>99.8%</td><td>15.1%</td><td>87.9%</td></tr><tr><td>Q4 2023</td><td>9.2%</td><td>95.1%</td><td>18.9%</td><td>86.5%</td></tr><tr><td>Q1 2024</td><td>10.5%</td><td>96.2%</td><td>16.5%</td><td>87.2%</td></tr><tr><td>Q2 2024</td><td>11.2%</td><td>94.5%</td><td>15.8%</td><td>88.1%</td></tr><tr><td>Q1 2025</td><td>9.8%</td><td>94.1%</td><td>13.2%</td><td>88.9%</td></tr></tbody></table>`;
 
+            // --- INJECT DIGITAL SHIFT CONTENT ---
+            const digitalShiftMain = document.getElementById('digital-shift-main-content');
+            digitalShiftMain.innerHTML = `
+                <section class="report-section">
+                    <div class="report-section-heading"><h2>Distribution Under Pressure: Broker vs. Direct</h2></div>
+                    <div class="prose max-w-full">
+                        <p>The Canadian P&C insurance industry is at a strategic crossroads, defined by the escalating competition between two fundamental distribution models: the traditional independent broker channel and the modern direct-to-consumer (D2C) channel. While brokers have historically dominated the landscape, particularly in commercial lines, well-funded D2C initiatives from major carriers are challenging the status quo. This section analyzes the strategic rationale, economic trade-offs, and competitive dynamics of this critical industry shift.</p>
+                        <h4>The Direct-to-Consumer Proposition: The Quest for Efficiency and Control</h4>
+                        <p>The strategic allure of the D2C model is powerful. By building a direct relationship with the customer, insurers aim to achieve several key objectives. The most prominent example is Definity's <b>Sonnet Insurance</b>, the first fully digital direct writer in Canada. The goals of such platforms are clear:</p>
+                        <ul><li><b>Lower Acquisition Costs:</b> In theory, by bypassing broker commissions (which can range from 12.5% to 20% of premium), D2C models promise a more efficient cost structure.</li><li><b>Customer Ownership and Data:</b> A direct relationship provides insurers with full control over the customer experience and access to invaluable data that can be used for pricing, underwriting, and product development.</li><li><b>Brand Building:</b> D2C platforms allow insurers to build a strong consumer-facing brand, reducing dependence on the broker for customer acquisition.</li></ul>
+                        <p>However, the path to D2C success is fraught with challenges. The primary obstacle is the staggering cost of customer acquisition. The savings on broker commissions are often immediately reinvested into massive marketing and advertising budgets required to build brand awareness and drive traffic. This has led to a persistent struggle for profitability, with many D2C ventures operating at a loss for extended periods as they pursue scale. Definity, for example, has been transparent about Sonnet's unprofitability and has undertaken significant "profitability actions," including exiting the Alberta auto market, to improve its performance.</p>
+                        <h4>The Broker Channel Strikes Back: The Digital Enablement</h4>
+                        <p>The broker channel is not standing still. Its enduring value proposition is rooted in providing <b>advice, choice, and advocacy</b>—services that are particularly crucial for clients with complex needs, such as small businesses or high-net-worth individuals. Brokers act as trusted advisors, helping clients navigate a complex market and advocating for them at the time of a claim.</p>
+                        <p>Recognizing the need to compete with the seamless experience of D2C platforms, leading insurers are now heavily investing in the digital enablement of their broker partners. Intact's <b>Vyne</b> platform is a prime example. These broker portals are designed to streamline workflows, providing instant quotes, digital binding capabilities, and easy access to policy documents. By equipping brokers with these tools, insurers are attempting to combine the efficiency of digital processing with the high-touch advisory role of the broker, creating a powerful hybrid model.</p>
+                    </div>
+                </section>
+                <section class="report-section">
+                    <div class="report-section-heading"><h2>Economic Trade-Offs and Strategic Implications</h2></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                         <div class="prose max-w-none">
+                            <p>The competition between these two models comes down to a fundamental economic trade-off. D2C models front-load their acquisition costs through marketing spend, hoping to recoup the investment over the lifetime of a more profitable customer. The broker model, conversely, has a more variable, commission-based acquisition cost but potentially lower long-term profitability per customer.</p>
+                            <p>For competitors, this dynamic presents clear strategic choices:</p>
+                            <ul><li><b>Double Down on Brokers:</b> Position your company as the "broker's champion," offering superior digital tools, consistent underwriting, and a clear commitment to the channel without the perceived conflict of a competing D2C brand.</li><li><b>Niche D2C Plays:</b> Instead of competing head-on with the broad-market approach of Sonnet, launch targeted D2C offerings for specific, digitally-savvy customer segments where a simplified product and user experience can win.</li><li><b>Hybrid Model Optimization:</b> For insurers with both channels, the key challenge is minimizing channel conflict and creating a seamless customer journey, regardless of how the customer first engages with the brand.</li></ul>
+                            <p>Ultimately, the future of insurance distribution in Canada is unlikely to be a winner-take-all scenario. Instead, the market will likely be served by a combination of models, with the most successful insurers being those who can master the economics and customer experience of their chosen channels.</p>
+                        </div>
+                        <div class="chart-card">
+                            <h3 class="text-xl font-semibold text-center mb-4 text-gray-700">Illustrative Channel Economics Comparison</h3>
+                            <div class="chart-container"><canvas id="channelEconomicsChart"></canvas></div>
+                        </div>
+                    </div>
+                </section>
+            `;
+
             // --- RENDER CHARTS ---
             
             // Intact Charts
@@ -820,6 +861,48 @@
             new Chart(document.getElementById('corChartDefinity'), { type: 'line', data: corDataDefinity, options: { ...commonChartOptions, scales: { ...commonChartOptions.scales, y: { ...commonChartOptions.scales.y, beginAtZero: false, ticks: { callback: function(value) { return value + '%'; } } } } } });
             const catLossDataDefinity = { labels: ['Q1-23', 'Q2-23', 'Q3-23', 'Q4-23', 'Q1-24', 'Q2-24', 'Q1-25'], datasets: [{ label: 'CAT Losses ($M)', data: [45, 130, 95, 30, 55, 110, 40], backgroundColor: consultancyPalette.yellow, borderRadius: 4, }] };
             new Chart(document.getElementById('catLossChartDefinity'), { type: 'bar', data: catLossDataDefinity, options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, legend: { display: false }, }, scales: { ...commonChartOptions.scales, y: { ...commonChartOptions.scales.y, ticks: { callback: function(value) { return '$' + value + 'M'; } } } } } });
+            
+            // Channel Economics Chart
+            const channelData = {
+                labels: ['Direct-to-Consumer (D2C)', 'Broker Channel'],
+                datasets: [
+                    {
+                        label: 'Illustrative Combined Ratio',
+                        data: [105, 92],
+                        backgroundColor: consultancyPalette.blue,
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'Illustrative Acquisition Cost (% of GWP)',
+                        data: [25, 15],
+                        backgroundColor: consultancyPalette.teal,
+                        yAxisID: 'y1',
+                    }
+                ]
+            };
+            new Chart(document.getElementById('channelEconomicsChart'), {
+                type: 'bar',
+                data: channelData,
+                options: {
+                    ...commonChartOptions,
+                    plugins: { ...commonChartOptions.plugins, tooltip: { mode: 'index', intersect: false } },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: { display: true, text: 'Combined Ratio (%)' }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            grid: { drawOnChartArea: false, },
+                            title: { display: true, text: 'Acquisition Cost (%)' }
+                        }
+                    }
+                }
+            });
         });
     </script>
 </body>
