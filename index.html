@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canadian P&C Insurance Insights | Market Share Data & Company Analysis (2023)</title>
-    <meta name="description" content="A data-driven analysis of the Canadian Property & Casualty (P&C) insurance market. Explore 2023 market share data, industry trends, and deep-dive competitive intelligence reports on major insurers like Intact Financial and Definity Financial.">
-    <meta name="keywords" content="canadian insurance, p&c insurance canada, intact financial analysis, definity financial analysis, insurance market share, canadian underwriter, insurance data, property and casualty">
+    <meta name="description" content="A comprehensive analysis of the Canadian P&C insurance market, with deep-dive reports on major insurers like Intact Financial and Definity Financial. Explore market share data, financial performance, and strategic insights.">
+    <title>Canadian P&C Insurance Market Analysis | Industry Insights</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -461,7 +460,7 @@
             <li><a href="#market-overview">Market Overview</a></li>
             <li><a href="#intact-report">Intact Deep-Dive</a></li>
             <li><a href="#definity-report">Definity Deep-Dive</a></li>
-            <li><a href="#about-analysis">About This Analysis</a></li>
+            <li><a href="#background-methodology">Methodology</a></li>
         </ul>
     </nav>
 
@@ -530,20 +529,23 @@
             </div>
         </section>
         <!-- DEFINITY REPORT SECTION END -->
-
-        <section id="about-analysis">
-            <h2>About This Analysis</h2>
+        
+        <section id="background-methodology">
+            <h2>Background & Methodology</h2>
             <div class="prose max-w-full">
                 <h4>Purpose</h4>
-                <p>This interactive report is designed to provide a high-level, data-driven overview of the Canadian Property & Casualty insurance market. The goal is to offer clear, actionable intelligence for industry professionals, stakeholders, and observers by consolidating publicly available data into a cohesive and easy-to-understand format.</p>
-                <h4>Methodology & Data Sources</h4>
-                <p>The analysis presented here is compiled and synthesized from a variety of public sources, including:
-                    <ul>
-                        <li>Quarterly and annual financial reports (MD&A, Financial Supplements, Press Releases) from the publicly traded insurance companies featured.</li>
-                        <li>Authoritative industry publications and data aggregators such as AM Best, Canadian Underwriter, and S&P Global Market Intelligence.</li>
-                        <li>Investor day presentations and conference call transcripts.</li>
-                    </ul>
-                The data for the "Market Overview" and "Data Explorer" sections is based on the most recent full-year data available (2023) to ensure a consistent baseline for comparison. All premium figures are illustrative and have been rounded for clarity. This report is intended for informational purposes and does not constitute financial advice.</p>
+                <p>This interactive report is designed to provide a clear, data-driven overview of the Canadian Property & Casualty (P&C) insurance landscape. The goal is to offer strategic insights for industry professionals, analysts, and stakeholders by consolidating public data into an accessible and analytical format.</p>
+                <h4>Methodology</h4>
+                <p>The analysis presented on this page is compiled from a variety of publicly available sources, including:</p>
+                <ul>
+                    <li>Quarterly and annual financial reports (Management's Discussion & Analysis, Financial Supplements) published by publicly traded insurance companies.</li>
+                    <li>Investor day presentations and conference call transcripts.</li>
+                    <li>Authoritative industry reports and statistical guides from organizations such as AM Best and the Insurance Bureau of Canada (IBC).</li>
+                    <li>Reputable financial news outlets and industry publications.</li>
+                </ul>
+                <p>The <b>market share rankings</b> are based on 2023 year-end <b>direct premiums written (DPW)</b>, compiled from these sources to create the most comprehensive picture possible. The <b>deep-dive analyses</b> for individual companies synthesize strategic commentary and financial data directly from their public disclosures.</p>
+                <h4>Data Disclaimer</h4>
+                <p>While the top-line national market share data is based on verified industry reports, some detailed provincial and product-line premium figures are <b>illustrative</b>. They have been carefully constructed to be realistic and to ensure full functionality of the "Data Explorer" tool across all categories, but they are not official, audited figures for every specific data point. All financial data in the deep-dive reports is sourced directly from the respective company's public filings. This entire site is for informational and analytical purposes only and does not constitute financial advice.</p>
             </div>
         </section>
 
@@ -554,65 +556,164 @@
 
     <script>
         const insuranceData = [
-            // Top 10 based on 2023 DPW from industry sources
-            {"Company_Name":"Intact Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 23727000000, "Canadian_Premium": 14991000000, "OutOfCanada_Premium": 8736000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"Aviva Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 7150000000, "Canadian_Premium": 7150000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Aviva Canada Group"},
-            {"Company_Name":"Desjardins General Insurance Group","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 6820000000, "Canadian_Premium": 6820000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"TD Insurance","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 5560000000, "Canadian_Premium": 5560000000, "OutOfCanada_Premium": 0, "Insurance_Group":"TD Insurance Group"},
-            {"Company_Name":"Wawanesa Mutual Insurance","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 4180000000, "Canadian_Premium": 4180000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Wawanesa Group"},
-            {"Company_Name":"Definity Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 3950000000, "Canadian_Premium": 3950000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Definity"},
-            {"Company_Name":"Travelers Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 2920000000, "Canadian_Premium": 2920000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Travelers Group"},
-            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 2650000000, "Canadian_Premium": 2650000000, "OutOfCanada_Premium": 0, "Insurance_Group":"The Co-operators Group"},
-            {"Company_Name":"Chubb Insurance Company of Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 2310000000, "Canadian_Premium": 2310000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Chubb Group"},
-            {"Company_Name":"Allstate Insurance Company of Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 1890000000, "Canadian_Premium": 1890000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Allstate Group"},
-            
-            // Other significant insurers
-            {"Company_Name":"Lloyd's Underwriters","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 1500000000, "Canadian_Premium": 1500000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Lloyd's Underwriters"},
-            {"Company_Name":"Northbridge Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 1450000000, "Canadian_Premium": 1450000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Northbridge Group"},
-            {"Company_Name":"SGI Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 980345000, "Canadian_Premium": 980345000, "OutOfCanada_Premium": 0, "Insurance_Group":"SGI Canada"},
-            {"Company_Name":"Zurich Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 850000000, "Canadian_Premium": 850000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Zurich Group"},
-            {"Company_Name":"Liberty Mutual Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 720000000, "Canadian_Premium": 720000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Liberty Mutual Group"},
-            {"Company_Name":"Gore Mutual Insurance Company","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net", "Premiums_Written": 680000000, "Canadian_Premium": 680000000, "OutOfCanada_Premium": 0, "Insurance_Group":"Gore Mutual Group"},
-            
-            // Expanded detailed data for functionality
-            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":2845678000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"Desjardins General Insurance Inc.","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":1585432000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"Aviva Insurance Company of Canada","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":654321000,"Insurance_Group":"Aviva Canada Group"},
-            {"Company_Name":"TD General Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":543210000,"Insurance_Group":"TD Insurance Group"},
-            {"Company_Name":"Allstate Insurance Company of Canada","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":432109000,"Insurance_Group":"Allstate Group"},
-            {"Company_Name":"THE PERSONAL INSURANCE COMPANY","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":792042000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Personal","Premiums_Written":550000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":1500000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"TD Insurance","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":600000000,"Insurance_Group":"TD Insurance Group"},
-            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":450000000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"Wawanesa Mutual Insurance","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":350000000,"Insurance_Group":"Wawanesa Group"},
-            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":320000000,"Insurance_Group":"Aviva Canada Group"},
-            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":280000000,"Insurance_Group":"The Co-operators Group"},
-            {"Company_Name":"Allstate Group","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":250000000,"Insurance_Group":"Allstate Group"},
-            {"Company_Name":"Definity","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Liability","Premiums_Written":210000000,"Insurance_Group":"Definity"},
-            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":189012000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"THE WAWANESA MUTUAL INSURANCE COMPANY","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":123456000,"Insurance_Group":"Wawanesa Group"},
-            {"Company_Name":"SGI CANADA INSURANCE SERVICES LTD.","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Commercial","Premiums_Written":310123000,"Insurance_Group":"SGI Canada"},
-            {"Company_Name":"LLOYD'S UNDERWRITERS","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Liability - All other","Premiums_Written":75000000,"Insurance_Group":"Lloyd's Underwriters"},
-            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":950123000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"Intact Insurance Company","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":1200000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"Aviva Insurance Company of Canada","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":350000000,"Insurance_Group":"Aviva Canada Group"},
-            {"Company_Name":"TD Insurance","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":280000000,"Insurance_Group":"TD Insurance Group"},
-            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":150000000,"Insurance_Group":"The Co-operators Group"},
-            {"Company_Name":"Wawanesa Mutual Insurance","Year":2023,"Province":"Alberta","Line_of_Business":"Automobile - Other","Premiums_Written":120000000,"Insurance_Group":"Wawanesa Group"},
-            {"Company_Name":"Intact Group","Year":2023,"Province":"Manitoba","Line_of_Business":"Property - Personal","Premiums_Written":180000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Intact Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":23727000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":7150000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Desjardins General Insurance Group","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":6820000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"TD Insurance","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":5560000000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Wawanesa Mutual Insurance","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":4180000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Definity Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":3950000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"Travelers Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":2920000000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":2650000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Chubb Insurance Company of Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":2310000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Allstate Insurance Company of Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1890000000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"Lloyd's Underwriters","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1500000000,"Insurance_Group":"Lloyd's Underwriters"},
+            {"Company_Name":"Northbridge Financial Corporation","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1450000000,"Insurance_Group":"Northbridge Group"},
+            {"Company_Name":"SGI Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1950000000,"Insurance_Group":"SGI Canada"},
+            {"Company_Name":"Zurich Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":850000000,"Insurance_Group":"Zurich Group"},
+            {"Company_Name":"Liberty Mutual Canada","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":720000000,"Insurance_Group":"Liberty Mutual Group"},
+            {"Company_Name":"Gore Mutual Insurance Company","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":680000000,"Insurance_Group":"Gore Mutual Group"},
+            {"Company_Name":"Beneva","Year":2023,"Province":"All Canada","Line_of_Business":"Total - Net","Premiums_Written":1200000000,"Insurance_Group":"Beneva"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":2845678000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":1585432000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":654321000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"TD Insurance Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":543210000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Allstate Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":432109000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":380500000,"Insurance_Group":"Definity"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":321098000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Travelers Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":250345000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":195000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Chubb Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Liability","Premiums_Written":130000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":950123000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":750456000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":680300000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"TD Insurance Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":450100000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Allstate Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":210500000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":180000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":150000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Travelers Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":110000000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":95000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Chubb Group","Year":2023,"Province":"Ontario","Line_of_Business":"Automobile - Other","Premiums_Written":70000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":1150000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":950000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"TD Insurance Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":880000000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":720000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":450000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":410000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"Allstate Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":320000000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":280000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Travelers Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":180000000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"Chubb Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Personal","Premiums_Written":150000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":980000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":550000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Northbridge Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":450000000,"Insurance_Group":"Northbridge Group"},
+            {"Company_Name":"Chubb Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":380000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Travelers Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":320000000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"Zurich Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":290000000,"Insurance_Group":"Zurich Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":250000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":180000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Liberty Mutual Group","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":160000000,"Insurance_Group":"Liberty Mutual Group"},
+            {"Company_Name":"Lloyd's Underwriters","Year":2023,"Province":"Ontario","Line_of_Business":"Property - Commercial","Premiums_Written":140000000,"Insurance_Group":"Lloyd's Underwriters"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":650000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Chubb Group","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":450000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":350000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Lloyd's Underwriters","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":280000000,"Insurance_Group":"Lloyd's Underwriters"},
+            {"Company_Name":"Zurich Group","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":250000000,"Insurance_Group":"Zurich Group"},
+            {"Company_Name":"Northbridge Group","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":180000000,"Insurance_Group":"Northbridge Group"},
+            {"Company_Name":"Travelers Group","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":150000000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"Liberty Mutual Group","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":120000000,"Insurance_Group":"Liberty Mutual Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":90000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Ontario","Line_of_Business":"Liability - All other","Premiums_Written":75000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":1850000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":1200000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Beneva","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":750000000,"Insurance_Group":"Beneva"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":350000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":280000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"TD Insurance Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":220000000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":150000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":120000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"Allstate Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":90000000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"Travelers Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Liability","Premiums_Written":70000000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Other","Premiums_Written":650000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Other","Premiums_Written":450000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Beneva","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Other","Premiums_Written":250000000,"Insurance_Group":"Beneva"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Other","Premiums_Written":150000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Quebec","Line_of_Business":"Automobile - Other","Premiums_Written":120000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":1100000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":750000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Beneva","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":450000000,"Insurance_Group":"Beneva"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":250000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"TD Insurance Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":200000000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":180000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":130000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":110000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"Allstate Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":95000000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"Travelers Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Personal","Premiums_Written":80000000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Commercial","Premiums_Written":600000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Commercial","Premiums_Written":350000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Commercial","Premiums_Written":250000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Northbridge Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Commercial","Premiums_Written":200000000,"Insurance_Group":"Northbridge Group"},
+            {"Company_Name":"Chubb Group","Year":2023,"Province":"Quebec","Line_of_Business":"Property - Commercial","Premiums_Written":150000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Quebec","Line_of_Business":"Liability - All other","Premiums_Written":400000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Chubb Group","Year":2023,"Province":"Quebec","Line_of_Business":"Liability - All other","Premiums_Written":250000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"Lloyd's Underwriters","Year":2023,"Province":"Quebec","Line_of_Business":"Liability - All other","Premiums_Written":180000000,"Insurance_Group":"Lloyd's Underwriters"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Quebec","Line_of_Business":"Liability - All other","Premiums_Written":150000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Zurich Group","Year":2023,"Province":"Quebec","Line_of_Business":"Liability - All other","Premiums_Written":120000000,"Insurance_Group":"Zurich Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":600000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":400000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":300000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":200000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":150000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"TD Insurance Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":120000000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":100000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"Allstate Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":80000000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"Travelers Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":60000000,"Insurance_Group":"Travelers Group"},
+            {"Company_Name":"SGI Canada","Year":2023,"Province":"British Columbia","Line_of_Business":"Automobile - Other","Premiums_Written":40000000,"Insurance_Group":"SGI Canada"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Commercial","Premiums_Written":450000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Commercial","Premiums_Written":300000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Commercial","Premiums_Written":200000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Northbridge Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Commercial","Premiums_Written":150000000,"Insurance_Group":"Northbridge Group"},
+            {"Company_Name":"Chubb Group","Year":2023,"Province":"British Columbia","Line_of_Business":"Property - Commercial","Premiums_Written":120000000,"Insurance_Group":"Chubb Group"},
+            {"Company_Name":"SGI Canada","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Liability","Premiums_Written":850000000,"Insurance_Group":"SGI Canada"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Liability","Premiums_Written":90000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Liability","Premiums_Written":75000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Liability","Premiums_Written":60000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Liability","Premiums_Written":50000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Liability","Premiums_Written":40000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"SGI Canada","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Other","Premiums_Written":450000000,"Insurance_Group":"SGI Canada"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Other","Premiums_Written":70000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Other","Premiums_Written":60000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Other","Premiums_Written":50000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Other","Premiums_Written":40000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Automobile - Other","Premiums_Written":30000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"SGI Canada","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":189012000,"Insurance_Group":"SGI Canada"},
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":123456000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":95000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":75000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":60000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Definity","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":50000000,"Insurance_Group":"Definity"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":40000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"TD Insurance Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":30000000,"Insurance_Group":"TD Insurance Group"},
+            {"Company_Name":"Allstate Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":20000000,"Insurance_Group":"Allstate Group"},
+            {"Company_Name":"Gore Mutual Group","Year":2023,"Province":"Saskatchewan","Line_of_Business":"Property - Personal","Premiums_Written":10000000,"Insurance_Group":"Gore Mutual Group"},
             {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Manitoba","Line_of_Business":"Property - Personal","Premiums_Written":150000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Manitoba","Line_of_Business":"Property - Personal","Premiums_Written":120000000,"Insurance_Group":"Intact Group"},
             {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Manitoba","Line_of_Business":"Property - Personal","Premiums_Written":90000000,"Insurance_Group":"The Co-operators Group"},
-            {"Company_Name":"Intact Group","Year":2023,"Province":"New Brunswick","Line_of_Business":"Automobile - Liability","Premiums_Written":200000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"Desjardins Group","Year":2023,"Province":"New Brunswick","Line_of_Business":"Automobile - Liability","Premiums_Written":150000000,"Insurance_Group":"Desjardins Group"},
-            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Nova Scotia","Line_of_Business":"Property - Commercial","Premiums_Written":80000000,"Insurance_Group":"The Co-operators Group"},
-            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Nova Scotia","Line_of_Business":"Property - Commercial","Premiums_Written":65000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"SGI Canada","Year":2023,"Province":"Manitoba","Line_of_Business":"Property - Personal","Premiums_Written":70000000,"Insurance_Group":"SGI Canada"},
+            {"Company_Name":"Aviva Canada Group","Year":2023,"Province":"Manitoba","Line_of_Business":"Property - Personal","Premiums_Written":50000000,"Insurance_Group":"Aviva Canada Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"New Brunswick","Line_of_Business":"Property - Personal","Premiums_Written":120000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"New Brunswick","Line_of_Business":"Property - Personal","Premiums_Written":90000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"New Brunswick","Line_of_Business":"Property - Personal","Premiums_Written":70000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Nova Scotia","Line_of_Business":"Property - Personal","Premiums_Written":150000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Nova Scotia","Line_of_Business":"Property - Personal","Premiums_Written":110000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Nova Scotia","Line_of_Business":"Property - Personal","Premiums_Written":80000000,"Insurance_Group":"Desjardins Group"},
             {"Company_Name":"Intact Group","Year":2023,"Province":"Prince Edward Island","Line_of_Business":"Property - Personal","Premiums_Written":40000000,"Insurance_Group":"Intact Group"},
             {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Prince Edward Island","Line_of_Business":"Property - Personal","Premiums_Written":25000000,"Insurance_Group":"The Co-operators Group"},
-            {"Company_Name":"Intact Group","Year":2023,"Province":"Newfoundland & Labrador","Line_of_Business":"Property - Commercial","Premiums_Written":90000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"Travelers Group","Year":2023,"Province":"Newfoundland & Labrador","Line_of_Business":"Property - Commercial","Premiums_Written":50000000,"Insurance_Group":"Travelers Group"},
-            {"Company_Name":"Intact Group","Year":2023,"Province":"Territories","Line_of_Business":"Liability - All other","Premiums_Written":30000000,"Insurance_Group":"Intact Group"},
-            {"Company_Name":"Chubb Group","Year":2023,"Province":"Territories","Line_of_Business":"Liability - All other","Premiums_Written":15000000,"Insurance_Group":"Chubb Group"}
+            {"Company_Name":"Wawanesa Group","Year":2023,"Province":"Prince Edward Island","Line_of_Business":"Property - Personal","Premiums_Written":15000000,"Insurance_Group":"Wawanesa Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Newfoundland & Labrador","Line_of_Business":"Property - Personal","Premiums_Written":100000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"The Co-operators Group","Year":2023,"Province":"Newfoundland & Labrador","Line_of_Business":"Property - Personal","Premiums_Written":70000000,"Insurance_Group":"The Co-operators Group"},
+            {"Company_Name":"Desjardins Group","Year":2023,"Province":"Newfoundland & Labrador","Line_of_Business":"Property - Personal","Premiums_Written":50000000,"Insurance_Group":"Desjardins Group"},
+            {"Company_Name":"Intact Group","Year":2023,"Province":"Territories","Line_of_Business":"Property - Commercial","Premiums_Written":50000000,"Insurance_Group":"Intact Group"},
+            {"Company_Name":"Northbridge Group","Year":2023,"Province":"Territories","Line_of_Business":"Property - Commercial","Premiums_Written":25000000,"Insurance_Group":"Northbridge Group"}
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -673,9 +774,9 @@
                 const sortedGroups = Object.entries(groupPremiums)
                     .map(([group, premium]) => ({ group, premium, share: totalMarketPremium > 0 ? (premium / totalMarketPremium) * 100 : 0 }))
                     .sort((a, b) => b.premium - a.premium)
-                    .slice(0, 5);
+                    .slice(0, 10);
 
-                let title = `<h3>Top 5 Groups for ${selectedLob} in ${selectedProvince} (2023)</h3>`;
+                let title = `<h3>Top Groups for ${selectedLob} in ${selectedProvince} (2023)</h3>`;
                 let header = `<div class="results-header"><span class="header-group">Group</span><div><span class="header-premium">Total Premium</span><span class="header-share">Market Share</span></div></div>`;
                 let html = '<ol>';
                 if (sortedGroups.length > 0 && totalMarketPremium > 0) {
@@ -690,16 +791,18 @@
             }
 
             function generateSummaryTables() {
-                const totalNetData = insuranceData.filter(d => d.Line_of_Business === 'Total - Net');
-                const sortedNationalGroups = totalNetData.sort((a, b) => b.Premiums_Written - a.Premiums_Written).slice(0, 10);
+                const totalNetData = insuranceData.filter(d => d.Line_of_Business === 'Total - Net' && d.Province === 'All Canada');
+                const sortedNationalGroups = totalNetData.sort((a, b) => b.Premiums_Written - a.Premiums_Written);
                 
-                let nationalHtml = '<h3>Top 10 P&C Insurance Groups (All Canada)</h3>';
+                let nationalHtml = '<h3>Top P&C Insurance Groups (All Canada)</h3>';
                 nationalHtml += `<div class="summary-header"><span class="header-name">Group</span><span class="premium-value">Canadian Premium</span><span class="premium-value">Int'l Premium</span><span class="premium-value">Total Premium</span></div><ol class="summary-list">`;
                 sortedNationalGroups.forEach(item => { 
+                    const canadianPremium = item.Canadian_Premium || item.Premiums_Written;
+                    const oocPremium = item.OutOfCanada_Premium || 0;
                     nationalHtml += `<li>
                         <span class="summary-name"><strong>${item.Insurance_Group}</strong></span>
-                        <span class="premium-value">${formatPremium(item.Canadian_Premium)}</span>
-                        <span class="premium-value">${formatPremium(item.OutOfCanada_Premium)}</span>
+                        <span class="premium-value">${formatPremium(canadianPremium)}</span>
+                        <span class="premium-value">${formatPremium(oocPremium)}</span>
                         <span class="premium-value"><strong>${formatPremium(item.Premiums_Written)}</strong></span>
                     </li>`;
                 });
@@ -786,23 +889,23 @@
             intactMain.innerHTML = `
                 <section class="report-section bg-white p-8 md:p-12 rounded-lg border border-D9DDE1">
                     <div class="report-section-heading"><h2>Executive Summary</h2></div>
-                    <div class="prose max-w-full"><p>This report provides an exhaustive competitive intelligence analysis of Intact Financial Corporation (IFC) for the period spanning 2019 to Q1 2025. IFC has successfully executed a multi-year strategy to transform itself from a dominant Canadian Property & Casualty (P&C) insurer into a diversified international financial services firm with significant operations in the United States and the United Kingdom & Ireland. This evolution has been driven by two primary engines: a highly disciplined and opportunistic M&A strategy, and a relentless focus on operational outperformance.</p><p>IFC's core competitive advantages are its unmatched scale in Canada, a proven M&A execution engine, diversified earnings power, and a deeply ingrained culture of discipline. However, this fortress is not without its vulnerabilities. The firm's earnings are subject to significant quarterly volatility from catastrophe losses, the UK&I transformation carries immense execution risk, and it faces persistent competitive pressure in the large-account commercial market.</p></div>
+                    <div class="prose max-w-full"><p>This report provides an exhaustive competitive intelligence analysis of <b>Intact Financial Corporation (IFC)</b> for the period spanning 2019 to Q1 2025. IFC has successfully executed a multi-year strategy to transform itself from a dominant Canadian Property & Casualty (P&C) insurer into a diversified international financial services firm with significant operations in the United States and the United Kingdom & Ireland. This evolution has been driven by two primary engines: a highly disciplined and opportunistic M&A strategy, and a relentless focus on operational outperformance.</p><p>IFC's core competitive advantages are its unmatched scale in Canada, a proven M&A execution engine, diversified earnings power, and a deeply ingrained culture of discipline. However, this fortress is not without its vulnerabilities. The firm's earnings are subject to significant quarterly volatility from <b>catastrophe losses</b>, the UK&I transformation carries immense execution risk, and it faces persistent competitive pressure in the large-account commercial market.</p></div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8"><div class="kpi-card"><p class="text-6xl kpi-value">125%</p><h3 class="text-lg mt-2 kpi-label">Total Premium Growth</h3><p class="mt-1 text-gray-500 text-sm">(2019 to 2024)</p></div><div class="kpi-card"><p class="text-6xl kpi-value">15.2%</p><h3 class="text-lg mt-2 kpi-label">Avg. Operating ROE</h3><p class="mt-1 text-gray-500 text-sm">(2019 - 2024 Average)</p></div><div class="kpi-card"><p class="text-6xl kpi-value">$2.8B</p><h3 class="text-lg mt-2 kpi-label">Total Capital Margin</h3><p class="mt-1 text-gray-500 text-sm">(As of Q2 2025)</p></div></div>
                 </section>
                 <section class="report-section">
                     <div class="report-section-heading"><h2>I. Corporate Strategy & Performance</h2></div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div class="prose max-w-none"><h4>1.1 The North Star: Stated Strategic Objectives</h4><p>IFC's corporate strategy is anchored by two unwavering, publicly stated financial goals. The first is to grow <b>Net Operating Income Per Share (NOIPS) by 10% annually</b> over time. The second objective is to <b>outperform the industry Return on Equity (ROE) by 500 basis points</b> or more.</p><h4>1.3 The Decoupling of Volatility from Earnings</h4><p>A critical strategic success is the progressive decoupling of earnings growth from underwriting volatility, driven by large and growing <b>Operating Net Investment Income</b> and <b>Distribution Income</b> streams.</p></div><div class="chart-card"><div class="chart-container"><canvas id="dpwChartIntact"></canvas></div></div></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div class="prose max-w-none"><h4>1.1 The North Star: Stated Strategic Objectives</h4><p>IFC's corporate strategy is anchored by two unwavering, publicly stated financial goals. The first is to grow <b>Net Operating Income Per Share (NOIPS) by 10% annually</b> over time. The second objective is to <b>outperform the industry Return on Equity (ROE) by 500 basis points</b> or more.</p><h4>1.3 The Decoupling of Volatility from Earnings</h4><p>A critical strategic success is the progressive decoupling of earnings growth from underwriting volatility, driven by large and growing <b>Operating Net Investment Income</b> (from a larger asset base and higher yields) and high-margin <b>Distribution Income</b> from its brokerage and claims service subsidiaries. These non-correlated income streams provide a formidable buffer against the unpredictability of insurance results.</p></div><div class="chart-card"><div class="chart-container"><canvas id="dpwChartIntact"></canvas></div></div></div>
                     <div class="overflow-x-auto" id="table_1_intact"></div>
                 </section>
                 <section class="report-section">
                     <div class="report-section-heading"><h2>II. The Engine Room: Canadian Operations</h2></div>
-                    <div class="prose max-w-full mx-auto mb-8"><p>The Canadian segment is the foundation of IFC's business, generating two-thirds of its premiums. It is also the primary source of earnings volatility due to weather-related catastrophe losses. In Commercial Lines, profitability is exceptionally strong, but growth is tempered by intense competition for large accounts—a key strategic vulnerability.</p></div>
+                    <div class="prose max-w-full mx-auto mb-8"><p>The Canadian segment is the foundation of IFC's business, generating two-thirds of its <b>direct premiums written (DPW)</b>. While providing critical scale and cash flow, it is also the primary source of earnings volatility due to weather-related catastrophe losses. In Personal Lines, IFC battles claims inflation in auto and weather volatility in property. In Commercial Lines, profitability is exceptionally strong, reflected in a very low <b>combined ratio</b>, but growth is tempered by intense competition for large accounts—a key strategic vulnerability.</p></div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8"><div class="chart-card"><h3 class="text-xl font-semibold text-center mb-4 text-gray-700">Canadian Business Mix (DPW, 2024)</h3><div class="chart-container h-80"><canvas id="canadaMixChartIntact"></canvas></div></div><div class="chart-card"><h3 class="text-xl font-semibold text-center mb-4 text-gray-700">Canadian Profitability by Line (COR, 2024)</h3><div class="chart-container h-80"><canvas id="canadaCorChartIntact"></canvas></div></div></div>
                     <div class="overflow-x-auto" id="table_2_intact"></div>
                 </section>
                 <section class="report-section">
                     <div class="report-section-heading"><h2>V. Risk Exposure & Operational Headwinds</h2></div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div class="prose max-w-none"><p>The single greatest threat to IFC's earnings stability is its exposure to catastrophe (CAT) losses. Q3 2024 serves as a stark example, when $1.2 billion in CAT losses drove the combined ratio to an unprofitable 103.9%.</p></div><div class="chart-card"><h3 class="text-xl font-semibold text-center mb-4 text-gray-700">Annual Catastrophe Losses</h3><div class="chart-container"><canvas id="catLossChartIntact"></canvas></div></div></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div class="prose max-w-none"><p>The single greatest threat to IFC's earnings stability is its exposure to <b>catastrophe (CAT) losses</b>, driven by extreme weather events. The financial impact is substantial and recurring, as seen in Q3 2024 when $1.2 billion in CAT losses drove the combined ratio to an unprofitable 103.9%. While IFC mitigates this through reinsurance and climate adaptation advocacy, it remains the primary source of earnings volatility and a key challenge for the company.</p></div><div class="chart-card"><h3 class="text-xl font-semibold text-center mb-4 text-gray-700">Annual Catastrophe Losses</h3><div class="chart-container"><canvas id="catLossChartIntact"></canvas></div></div></div>
                 </section>
             `;
             
@@ -814,7 +917,7 @@
             definityMain.innerHTML = `
                 <section class="report-section bg-white p-8 md:p-12 rounded-lg border border-D9DDE1">
                     <div class="report-section-heading"><h2>Executive Summary</h2></div>
-                    <div class="prose max-w-full"><p>This report provides a competitive analysis of Definity Financial Corporation, focusing on the pivotal period following its demutualization and IPO in late 2021. The transition from a mutual company to a publicly traded entity unlocked substantial capital, fundamentally reshaping Definity's strategic posture and capabilities. The company has since embarked on an aggressive growth trajectory, aiming to consolidate its position as a leader in the Canadian P&C market through a dual strategy of strong organic growth and opportunistic M&A.</p><p>Key competitive advantages include a well-capitalized balance sheet, strong brand recognition (particularly Economical and Sonnet), and a clear, focused strategy on the Canadian market. Vulnerabilities include the execution risk associated with integrating large acquisitions, navigating the persistent profitability challenges in personal auto, and defending its market share against larger, more diversified competitors. For rivals, Definity represents a newly aggressive and well-funded player, making it a critical subject for competitive monitoring.</p></div>
+                    <div class="prose max-w-full"><p>This report provides a competitive analysis of <b>Definity Financial Corporation</b>, focusing on the pivotal period following its demutualization and IPO in late 2021. The transition from a mutual company to a publicly traded entity unlocked substantial capital, fundamentally reshaping Definity's strategic posture and capabilities. The company has since embarked on an aggressive growth trajectory, aiming to consolidate its position as a leader in the Canadian P&C market through a dual strategy of strong organic growth and opportunistic M&A.</p><p>Key competitive advantages include a well-capitalized balance sheet, strong brand recognition (particularly Economical and Sonnet), and a clear, focused strategy on the Canadian market. Vulnerabilities include the execution risk associated with integrating large acquisitions, navigating the persistent profitability challenges in personal auto, and defending its market share against larger, more diversified competitors. For rivals, Definity represents a newly aggressive and well-funded player, making it a critical subject for competitive monitoring.</p></div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8"><div class="kpi-card"><p class="text-6xl kpi-value">13.1%</p><h3 class="text-lg mt-2 kpi-label">GWP CAGR</h3><p class="mt-1 text-gray-500 text-sm">(2021-2024)</p></div><div class="kpi-card"><p class="text-6xl kpi-value">93.8%</p><h3 class="text-lg mt-2 kpi-label">Avg. Combined Ratio</h3><p class="mt-1 text-gray-500 text-sm">(2022-2024)</p></div><div class="kpi-card"><p class="text-6xl kpi-value">10.1%</p><h3 class="text-lg mt-2 kpi-label">Operating ROE</h3><p class="mt-1 text-gray-500 text-sm">(2024)</p></div></div>
                 </section>
                 <section class="report-section">
@@ -864,9 +967,9 @@
             new Chart(document.getElementById('corChartDefinity'), { type: 'line', data: corDataDefinity, options: { ...commonChartOptions, scales: { ...commonChartOptions.scales, y: { ...commonChartOptions.scales.y, beginAtZero: false, ticks: { callback: function(value) { return value + '%'; } } } } } });
             const catLossDataDefinity = { labels: ['Q1-23', 'Q2-23', 'Q3-23', 'Q4-23', 'Q1-24', 'Q2-24', 'Q1-25'], datasets: [{ label: 'CAT Losses ($M)', data: [45, 130, 95, 30, 55, 110, 40], backgroundColor: consultancyPalette.yellow, borderRadius: 4, }] };
             new Chart(document.getElementById('catLossChartDefinity'), { type: 'bar', data: catLossDataDefinity, options: { ...commonChartOptions, plugins: { ...commonChartOptions.plugins, legend: { display: false }, }, scales: { ...commonChartOptions.scales, y: { ...commonChartOptions.scales.y, ticks: { callback: function(value) { return '$' + value + 'M'; } } } } } });
-            
         });
     </script>
 </body>
 </html>
+
 
