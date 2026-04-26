@@ -364,6 +364,28 @@
                     </tbody>
                 </table>
             </div>
+
+            <h3 class="font-bold text-xl text-slate-900 mt-12 mb-4">Macro Premium Distribution Matrix (% of National Total)</h3>
+            <p class="text-slate-600 mb-6 font-serif">This matrix illustrates the concentration of premium across the Canadian landscape. Rows and columns are sorted by total volume, highlighting the systemic importance of key segments like Ontario Auto and Property.</p>
+            <div class="financial-table-wrapper" style="margin-top: 0;">
+                <table id="macro-distribution-table">
+                    <thead id="macro-head">
+                        <!-- Populated by JS -->
+                    </thead>
+                    <tbody id="macro-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="prose mt-6 max-w-none text-sm text-slate-600">
+                <h4 class="text-slate-800 font-semibold mb-2">Analyst Commentary: Revenue Concentration</h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><b>The Ontario Auto Anchor:</b> Ontario Automobile (Liability and Other combined) represents the single largest block of premium in the country. Consequently, regulatory shifts or inflationary trends in Ontario dictate national margin trajectories for all diversified carriers.</li>
+                    <li><b>The Rise of Property:</b> Driven by years of rate hardening in response to secondary perils (wildfires, floods, severe convective storms), Personal and Commercial Property lines command a historically high percentage of the national premium pool, shifting the industry's risk profile from frequency-based to severity-based.</li>
+                    <li><b>Public Auto Distortions:</b> The absence of massive private auto premiums in BC, Saskatchewan, and Manitoba means national carriers must pivot their regional strategies heavily toward commercial and property lines to maintain scale in the West.</li>
+                    <li><b>Commercial Profit Engine:</b> Commercial lines have benefited from compounded rate increases over the last several years, expanding their share of the overall revenue pie and serving as the primary profit engine offsetting personal lines volatility.</li>
+                </ul>
+            </div>
         </article>
 
         <!-- Current Events -->
@@ -783,9 +805,62 @@
                 document.getElementById('national-body').innerHTML = html;
             }
 
+            // --- Macro Distribution Matrix ---
+            function renderMacroDistribution() {
+                const detailedData = insuranceData2025.filter(d => d.Line_of_Business !== 'Total - Net' && d.Province !== 'All Canada');
+                
+                let totalPremium = 0;
+                let lobTotals = {};
+                let provTotals = {};
+                let matrixData = {}; 
+
+                detailedData.forEach(d => {
+                    totalPremium += d.Premiums_Written;
+                    lobTotals[d.Line_of_Business] = (lobTotals[d.Line_of_Business] || 0) + d.Premiums_Written;
+                    provTotals[d.Province] = (provTotals[d.Province] || 0) + d.Premiums_Written;
+                    
+                    if (!matrixData[d.Line_of_Business]) matrixData[d.Line_of_Business] = {};
+                    matrixData[d.Line_of_Business][d.Province] = (matrixData[d.Line_of_Business][d.Province] || 0) + d.Premiums_Written;
+                });
+
+                // Sort by highest volume
+                const sortedLobs = Object.keys(lobTotals).sort((a, b) => lobTotals[b] - lobTotals[a]);
+                const sortedProvs = Object.keys(provTotals).sort((a, b) => provTotals[b] - provTotals[a]);
+
+                // Build Table Head
+                let headHtml = '<tr><th>Product Line</th>';
+                sortedProvs.forEach(p => { headHtml += `<th>${p}</th>`; });
+                headHtml += '<th class="bg-slate-200 text-slate-800">Total</th></tr>';
+                document.getElementById('macro-head').innerHTML = headHtml;
+
+                // Build Table Body
+                let bodyHtml = '';
+                sortedLobs.forEach(lob => {
+                    bodyHtml += `<tr><td class="font-semibold text-slate-800">${lob}</td>`;
+                    sortedProvs.forEach(prov => {
+                        let premium = (matrixData[lob] && matrixData[lob][prov]) ? matrixData[lob][prov] : 0;
+                        let pct = totalPremium > 0 ? ((premium / totalPremium) * 100).toFixed(1) : 0;
+                        bodyHtml += `<td>${pct > 0 ? pct + '%' : '-'}</td>`;
+                    });
+                    let lobPct = totalPremium > 0 ? ((lobTotals[lob] / totalPremium) * 100).toFixed(1) : 0;
+                    bodyHtml += `<td class="font-bold text-primary-navy bg-slate-50">${lobPct}%</td></tr>`;
+                });
+                
+                // Build Total Row
+                bodyHtml += `<tr class="bg-slate-100 font-bold text-primary-navy"><td>Total</td>`;
+                sortedProvs.forEach(prov => {
+                    let provPct = totalPremium > 0 ? ((provTotals[prov] / totalPremium) * 100).toFixed(1) : 0;
+                    bodyHtml += `<td>${provPct}%</td>`;
+                });
+                bodyHtml += `<td class="bg-slate-200">100.0%</td></tr>`;
+                
+                document.getElementById('macro-body').innerHTML = bodyHtml;
+            }
+
             // Initialize
             initDropdowns();
             renderNational();
+            renderMacroDistribution();
             lobSelect.addEventListener('change', updateMatrix);
             provinceSelect.addEventListener('change', updateMatrix);
             if(lobSelect.options.length > 0) {
